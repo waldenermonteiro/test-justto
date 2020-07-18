@@ -25,7 +25,7 @@ export default {
     },
     $setNotifySuccess (message) {
       swal({
-        title: 'Bom trabalho!',
+        title: 'Good Job!',
         text: message,
         icon: 'success'
       })
@@ -50,7 +50,7 @@ export default {
         title: `${obj.title}`,
         text: `${obj.message}`,
         icon: 'warning',
-        buttons: ['Cancelar', 'Ok'],
+        buttons: ['Cancel', 'Ok'],
         dangerMode: true
       }).then(willDelete => {
         if (willDelete) {
