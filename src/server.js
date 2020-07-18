@@ -8,8 +8,8 @@ export function makeServer (environment = 'development') {
     },
     factories: {
       user: Factory.extend({
-        firstName: 'Waldener',
-        lastName: 'Monteiro',
+        firstName: 'waldener',
+        lastName: 'monteiro',
         email: 'test@mail.com'
       })
     },
@@ -18,14 +18,17 @@ export function makeServer (environment = 'development') {
     },
     routes () {
       this.namespace = 'api'
-      this.get('users', schema => schema.db.users)
+      this.get('users', function (schema, request) {
+        const attrs = request.queryParams
+        return !attrs.firstName ? schema.db.users : schema.db.users.findBy(attrs) === null ? [] : [schema.db.users.findBy(attrs)]
+      })
       this.post('/users', function (schema, request) {
         const attrs = JSON.parse(request.requestBody)
         return schema.db.users.insert(attrs)
       })
       this.put('/users/:id', function (schema, request) {
         const attrs = JSON.parse(request.requestBody)
-        return schema.db.users.update(attrs)
+        return schema.db.users.update(attrs.id, attrs)
       })
       this.delete('/users/:id', function (schema, request) {
         return schema.db.users.remove(request.params.id)
