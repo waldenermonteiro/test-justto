@@ -18,7 +18,7 @@ const create = async ({ commit }, obj) => {
 }
 const update = async ({ commit }, obj) => {
   try {
-    await UserService.update(obj, obj._id)
+    await UserService.update(obj, obj.id)
   } catch (error) {
     throw error
   }
