@@ -1,5 +1,5 @@
 const SET_DATA = (state, payload) => {
-  state.users = payload.data
+  state.users = payload
 }
 
 export default {
