@@ -11,7 +11,7 @@ export default {
     },
     setUniqueNotifyDanger (message) {
       swal({
-        title: 'Algo deu errado!',
+        title: 'Something went wrong!',
         text: message,
         icon: 'error'
       })
@@ -33,14 +33,14 @@ export default {
 
     $setNotifyInfo (message) {
       swal({
-        title: 'Sistema Informa!',
+        title: 'Info!',
         text: message,
         icon: 'info'
       })
     },
     $setNotifyWarning (message) {
       swal({
-        title: 'Alerta!',
+        title: 'Warning!',
         text: message,
         icon: 'warning'
       })
