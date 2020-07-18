@@ -1,12 +1,11 @@
 <template>
   <section>
     <header>
-      <nav>
-        <p class="text-right"><el-button icon="fa fa-plus" size="medium" round type="primary" @click="handleRegister()"> Register</el-button></p>
-        <p class="h1-text">Users</p>
-      </nav>
+      <list-filter></list-filter>
     </header>
     <article>
+      <p class="text-right"><el-button icon="fa fa-plus" size="mini" round type="primary" @click="handleRegister()"> Register</el-button></p>
+      <p class="h1-text">Users</p>
       <el-table empty-text="No data" :data="users" :stripe="true" :border="true" style="width: 100%">
         <el-table-column sortable prop="firstName" label="First Name" width="180"> </el-table-column>
         <el-table-column sortable prop="lastName" label="Last Name" width="180"> </el-table-column>
@@ -26,9 +25,10 @@
 
 <script>
 import { mapState } from 'vuex'
+import ListFilter from './components/ListFilter'
 import Register from './Register'
 export default {
-  components: { Register },
+  components: { ListFilter, Register },
   mounted () {
     this.$list({
       urlDispatch: 'User/list'
