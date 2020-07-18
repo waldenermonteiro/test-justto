@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-catch */
 import UserService from '../services/UserService'
 
-const list = async ({ commit }) => {
+const list = async ({ commit }, params) => {
   try {
-    const { data } = await UserService.list()
+    const { data } = await UserService.list(params)
     commit('SET_DATA', data)
   } catch (error) {
     await error
