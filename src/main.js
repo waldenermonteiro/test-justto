@@ -6,10 +6,12 @@ import NotifyMessage from './mixins/notify-message.mixin'
 import Vuelidate from 'vuelidate'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './assets/css/all.min.css'
 import VueLoading from 'vuejs-loading-plugin'
+import { makeServer } from './server'
 Vue.use(Vuelidate)
 Vue.use(ElementUI)
-Vue.use(VueLoading, { text: 'Carregando' })
+Vue.use(VueLoading, { text: 'Loading' })
 Vue.config.productionTip = false
 Vue.mixin({
   mixins: [NotifyMessage],
@@ -42,6 +44,7 @@ Vue.mixin({
     }
   }
 })
+makeServer()
 new Vue({
   router,
   store,
