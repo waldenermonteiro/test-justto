@@ -1,17 +1,43 @@
 <template>
-  <el-dialog :title="verifyUserTittle(form) + ' User'" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+  <el-dialog
+    :title="verifyUserTittle(form) + ' User'"
+    :visible.sync="dialogVisible"
+    width="30%"
+    :before-close="handleClose"
+    :close-on-press-escape="false"
+    :close-on-click-modal="false"
+  >
     <el-form ref="form" label-width="120px">
       <el-form-item label="First Name">
-        <el-input maxlength="20" :readonly="inputsReadonly" :class="verifyError($v.form.firstName.$error)" @input="$v.form.firstName.$touch" v-model="form.firstName"></el-input>
+        <el-input
+          maxlength="20"
+          :readonly="inputsReadonly"
+          :class="verifyError($v.form.firstName.$error)"
+          @input="$v.form.firstName.$touch"
+          v-model="form.firstName"
+        ></el-input>
         <span v-if="$v.form.firstName.$error" class="el-form-item__error">First name is required</span>
       </el-form-item>
       <el-form-item label="Last Name">
-        <el-input maxlength="20" :readonly="inputsReadonly" :class="verifyError($v.form.lastName.$error)" @input="$v.form.lastName.$touch" v-model="form.lastName"></el-input>
+        <el-input
+          maxlength="20"
+          :readonly="inputsReadonly"
+          :class="verifyError($v.form.lastName.$error)"
+          @input="$v.form.lastName.$touch"
+          v-model="form.lastName"
+        ></el-input>
         <span v-if="$v.form.lastName.$error" class="el-form-item__error">Last name is required</span>
       </el-form-item>
       <el-form-item label="E-mail">
-        <el-input maxlength="20" :readonly="inputsReadonly" :class="verifyError($v.form.email.$error)" @input="$v.form.email.$touch" v-model="form.email"></el-input>
-        <span v-if="$v.form.email.$error" class="el-form-item__error">E-mail is required</span>
+        <el-input
+          maxlength="20"
+          :readonly="inputsReadonly"
+          :class="verifyError($v.form.email.$error)"
+          @input="$v.form.email.$touch"
+          v-model="form.email"
+        ></el-input>
+        <span v-if="$v.form.email.$error && !$v.form.email.required" class="el-form-item__error">E-mail is required</span>
+        <span v-if="$v.form.email.$error && !$v.form.email.email" class="el-form-item__error"> Enter a correct email</span>
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">

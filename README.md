@@ -1,5 +1,6 @@
 # test-justto
-
+### Demo
+A aplicação pode ser testada através do link: https://cranky-pike-31261e.netlify.app/
 ### Tecnologias
 
 * [Vue](https://br.vuejs.org/ "Vue") - Framework  Javascript Progressivo que trabalha com componentes.
