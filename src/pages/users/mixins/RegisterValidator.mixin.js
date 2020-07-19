@@ -1,4 +1,4 @@
-import { required } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 import notifyMessage from '../../../mixins/notify-message.mixin'
 export default {
   mixins: [notifyMessage],
@@ -31,7 +31,8 @@ export default {
         required
       },
       email: {
-        required
+        required,
+        email
       }
     }
   }
